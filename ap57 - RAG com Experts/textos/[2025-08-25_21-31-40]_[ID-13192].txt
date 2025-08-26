@@ -1,0 +1,57 @@
+Data: 24/08/2025, 21:31:40
+ID da Mensagem: 13192
+
+---
+
+Aqui está um **resumo em nível diretoria** sobre os dois workflows de RAG:
+
+---
+
+## 1. Workflow Multimodal RAG (Blueprint 2.0)
+
+**Objetivo:**
+Automatizar a ingestão e consulta de documentos complexos (PDFs com texto, tabelas e imagens) e permitir que colaboradores façam perguntas diretas a esses conteúdos através de um chat inteligente.
+
+**O que ele faz em alto nível:**
+
+* Monitora uma pasta do Google Drive para novos documentos.
+* Processa os arquivos com OCR (Mistral) para extrair texto e descrições de imagens.
+* Converte imagens em links acessíveis (Supabase Storage).
+* Divide o texto em partes menores, gera embeddings (OpenAI) e armazena no Supabase (banco vetorial).
+* Oferece uma interface de chat onde um agente de IA busca informações nos documentos e responde perguntas.
+* Move os arquivos processados para uma pasta de “concluídos” no Drive.
+
+**Valor para a gestão:**
+
+* Centraliza conhecimento corporativo disperso em documentos.
+* Facilita consultas rápidas, reduzindo tempo gasto com busca manual.
+* Melhora decisões estratégicas com acesso imediato a informações críticas.
+* Possibilita uso multimodal (texto + imagem), ampliando aplicações em áreas técnicas e regulatórias.
+
+---
+
+## 2. Workflow Simples OCR Ingestion (Blueprint 1.1)
+
+**Objetivo:**
+Fornecer uma solução enxuta para leitura e consulta de documentos, focada apenas em OCR e armazenamento de conteúdo textual.
+
+**O que ele faz em alto nível:**
+
+* Recebe um documento (via URL ou upload).
+* Executa OCR (Mistral) para extrair o texto.
+* Adiciona descrições básicas de imagens dentro do texto (sem upload separado).
+* Gera embeddings (OpenAI) e salva no Supabase para consultas semânticas.
+* Permite interação via chat com agente de IA que responde perguntas com base nos dados.
+
+**Valor para a gestão:**
+
+* Mais simples de implementar e manter.
+* Adequado para cenários onde apenas o texto é relevante (ex.: manuais, FAQs, documentos internos).
+* Menor custo e consumo de recursos comparado ao fluxo multimodal.
+
+---
+
+## Comparativo Executivo
+
+* **Multimodal RAG** → Robusto, cobre cenários complexos (texto, imagens, tabelas), ideal para áreas técnicas, compliance, engenharia ou saúde.
+* **OCR Simples** → Enxuto, foca em texto, mais rápido e barato para implantar, suficiente para áreas administrativas, jurídicas ou suporte.

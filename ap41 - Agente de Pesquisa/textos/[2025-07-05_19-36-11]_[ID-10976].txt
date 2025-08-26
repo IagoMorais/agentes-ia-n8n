@@ -1,0 +1,59 @@
+Data: 05/07/2025, 19:36:11
+ID da Mensagem: 10976
+
+---
+
+**Resumo do vídeo “Build Your First Research AI Agent in 12 mins (No Code)”**
+
+O vídeo ensina a criar um agente de pesquisa com IA no **n8n** sem escrever código, usando **OpenRouter** e **Perplexity**. O agente faz buscas na web, resume informações e apresenta links para as fontes originais.
+
+### Passo a passo resumido:
+
+1. **Introdução**
+
+   * O autor promete montar o agente em 12 minutos, do zero, com explicação detalhada de credenciais e integrações.
+
+2. **Conceito geral**
+
+   * **OpenRouter**: serve como o “cérebro” do agente, conectando a modelos de IA como GPT-4.
+   * **Perplexity**: ferramenta para pesquisa na web em tempo real.
+
+3. **Configuração inicial no n8n**
+
+   * Adiciona um **gatilho de chat** para enviar mensagens ao agente.
+   * Configura o nó **AI Agent** com OpenRouter, criando uma chave de API no site e conectando ao modelo GPT-4.1 Mini.
+   * Valida o funcionamento perguntando “Explique as regras do golfe” e recebendo resposta.
+
+4. **Integração com Perplexity**
+
+   * Adiciona o nó **Perplexity Tool**.
+   * Cria uma chave de API no site do Perplexity e conecta.
+   * Escolhe o modelo **Sonar Deep Research** para análises detalhadas.
+   * Configura filtros opcionais (ex.: período de busca ou domínios específicos).
+
+5. **Exemplo prático de pesquisa**
+
+   * Pergunta “Como otimizar meu sono?”
+   * O agente faz uma pesquisa profunda, acessa 20 fontes e retorna um relatório completo com dicas, rotina, dieta, etc.
+
+6. **Automação avançada com Google Sheets**
+
+   * Substitui o gatilho de chat por um gatilho diário.
+   * Puxa uma lista de concorrentes (Apple, Google, Amazon, Nvidia) do Google Sheets.
+   * O agente pesquisa automaticamente sobre cada empresa e grava os resultados de volta na planilha.
+
+7. **Personalização do agente**
+
+   * Destaca o uso de mensagens de sistema para definir comportamentos (“Você é um agente de pesquisa especializado…”).
+   * Mostra como adaptar o agente a processos empresariais, como pipelines de vendas ou marketing.
+
+8. **Encerramento e comunidade**
+
+   * Convida os espectadores a participar de sua comunidade para aprender automações com IA.
+   * Apresenta cursos “Agent Zero” (fundamentos) e “10 horas para 10 segundos” (automação avançada).
+
+### Exemplos citados:
+
+* Pesquisa de rotina sobre concorrentes com atualização diária.
+* Geração de relatórios com fontes citadas automaticamente.
+* Integração com outros processos além de chat.

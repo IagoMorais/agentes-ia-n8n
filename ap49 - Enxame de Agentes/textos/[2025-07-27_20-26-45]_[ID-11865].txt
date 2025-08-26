@@ -1,0 +1,33 @@
+Data: 27/07/2025, 20:26:45
+ID da Mensagem: 11865
+
+---
+
+## Quando usar AGENTE de IA
+
+Use quando o sistema **precisa pensar** ou **decidir o que fazer** com base no que a pessoa pediu.
+
+**Exemplos:**
+
+* Entender pedidos em linguagem natural (“avise o João e marque reunião amanhã”)
+* Escolher qual ferramenta usar
+* Lidar com comandos diferentes a cada vez
+
+---
+
+## Quando usar WORKFLOW
+
+Use quando o processo é **sempre igual**, com passos fixos, sem decisões inteligentes.
+
+**Exemplos:**
+
+* Enviar e-mail todo dia às 8h
+* Salvar formulário em planilha
+* Enviar alerta se valor for maior que X
+
+---
+
+## Regra rápida:
+
+Se precisa **pensar → AGENTE**
+Se é só **fazer → WORKFLOW**

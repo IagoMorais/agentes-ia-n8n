@@ -1,0 +1,71 @@
+Data: 24/08/2025, 21:29:13
+ID da Mensagem: 13189
+
+---
+
+Vou resumir e transformar em guia prático o blueprint Multimodal RAG em n8n que você enviou, e já deixar exemplos e respostas no final para acelerar sua implementação.&#x20;
+
+Resumo completo
+
+1. O que este fluxo faz
+   Um RAG multimodal no n8n que lê, analisa e consulta PDFs com texto, imagens e tabelas, exibe as imagens relevantes no chat e usa um vetor store no Supabase para buscas semânticas. Integra Google Drive (ingestão e mova-para processados), Mistral (LLM), OpenAI (embeddings ou agente), e Supabase (armazenamento, vetor e bucket público). Há também um fluxo alternativo de OCR simples.
+
+2. Como funciona em alto nível
+   a) Disparo: Google Drive Trigger observa a pasta Multimodal RAG.
+   b) Ingestão: ao detectar PDF, extrai conteúdo multimodal, gera embeddings e grava no Supabase (tabela documents).
+   c) Armazenamento de mídia: envia imagens para um bucket público do Supabase Storage.
+   d) Chat: você recebe uma URL pública de chat (nó when chat message received) para conversar com os dados; o agente consulta o vetor store, reune contexto e responde.
+   e) Pós-processo: arquivo é movido para a pasta processed no Drive.
+   f) Observação: em n8n Cloud há limites de memória; o documento sugere dividir partes pesadas em sub-workflows ou hospedar por conta própria.
+
+3. Checklist de setup rápido
+   Google Drive
+   • Criar pasta Multimodal RAG e subpasta processed
+   • Selecionar credenciais do Drive nos nós de entrada e saída
+   • Configurar o Trigger para escutar a pasta principal e o nó final para mover para processed
+
+Supabase
+• Criar projeto e um bucket público no Storage (ex.: taia-rag)
+• Pegar base URL e service role secret
+• Executar o Quickstart LangChain para criar a tabela documents
+• Selecionar a tabela documents no nó Supabase Vector Store
+
+LLMs e embeddings
+• Mistral: criar API key em console.mistral.ai e vincular nos nós de requests
+• OpenAI: credenciais ativas para embeddings e/ou agente no fluxo
+
+Chat
+• Pegar a URL pública no nó when chat message received e abrir no navegador para conversar com os PDFs
+
+4. Nós típicos do fluxo (modelo mental)
+   • Google Drive Trigger → Baixar arquivo → Extrair conteúdo (texto + imagens) → Upload de imagens para Storage (URL pública) → Gerar embeddings → Upsert no Supabase Vector Store → when chat message received (rota de chat pública) → Agente RAG que faz retrieve no Supabase + gera resposta com Mistral/OpenAI → Google Drive Move to processed
+
+5. Boas práticas e hacks aplicáveis
+   • Separar ingestão pesada em sub-workflows para liberar RAM no n8n Cloud
+   • Padronizar chunking por tipo de conteúdo: texto corrido vs tabelas
+   • Gravar metadados úteis no vetor store (pasta, nome do arquivo, data, seção, número de página) para filtros precisos
+   • Salvar URLs públicas das imagens no próprio payload de chunks para o agente decidir quando exibi-las no chat
+   • Usar um re-rank leve (por ex., um scorer adicional) quando a base começar a crescer
+   • Habilitar cache de respostas de consultas frequentes
+   • Criar rotinas de re-ingestão para documentos atualizados (hash de conteúdo para detectar mudanças)
+   • Logging de consultas e avaliação: medir hit rate\@k, MRR e latência por etapa
+
+6. Erros comuns que já ficam resolvidos
+   • Pasta errada no Trigger do Drive: confirme o folderId selecionado
+   • Bucket não público no Supabase: imagens não aparecem no chat
+   • Tabela documents não criada: rodar o Quickstart LangChain
+   • Chave Mistral com “Bearer ” na frente: usar só o token puro
+   • Service role ausente: upsert no vetor store falha
+   • Explodir memória em n8n Cloud: mover OCR e parsing pesado para sub-workflow
+
+7. Fluxo alternativo
+   Se você só precisa de OCR sem upload de imagens para o chat, use o workflow alternativo mais simples apontado no material. Mantém as mesmas credenciais (Mistral, Supabase, OpenAI), mas reduz complexidade.
+
+Tópicos com exemplos e respostas
+
+1. Estrutura de pastas no Drive
+   Exemplo
+   Multimodal RAG/
+   • processed/
+   Resposta
+   No Trigger, aponte para Multimodal RAG; no nó final, mova o arquivo para processed após a

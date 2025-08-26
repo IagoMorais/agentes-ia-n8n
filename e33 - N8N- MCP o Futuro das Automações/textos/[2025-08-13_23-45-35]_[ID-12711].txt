@@ -1,0 +1,6 @@
+Data: 12/08/2025, 23:45:35
+ID da Mensagem: 12711
+
+---
+
+https://github.com/czlonkowski/n8n-mcp

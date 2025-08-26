@@ -1,0 +1,19 @@
+Data: 29/07/2025, 17:06:08
+ID da Mensagem: 12037
+
+---
+
+e-mails.
+
+---
+
+### **Conclusão Prática**
+
+A **engenharia de contexto é essencial para automações de IA** robustas e confiáveis. Agentes bem estruturados:
+
+* Fazem menos erros,
+* São mais rápidos,
+* Custam menos para operar,
+* E entregam resultados mais relevantes e personalizados.
+
+A lógica geral se baseia na ideia de **dar ao agente uma "cola" (cheat sheet) que ele possa consultar sempre, em vez de depender só do que “estudou” (prompt)**.

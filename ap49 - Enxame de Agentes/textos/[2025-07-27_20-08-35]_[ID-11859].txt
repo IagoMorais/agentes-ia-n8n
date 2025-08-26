@@ -1,0 +1,15 @@
+Data: 27/07/2025, 20:08:35
+ID da Mensagem: 11859
+
+---
+
+Um Enxame de Agentes de IA no n8n Ficou Muito Fácil**
+
+Como construir um enxame de agentes de IA totalmente funcional usando ferramentas no-code no n8n.
+
+Esse framework permite que um agente principal (pai) acione vários subagentes especializados, cada um com sua própria tarefa. Essa abordagem modular melhora o desempenho, reduz o excesso de informações nos prompts e aumenta a precisão do contexto — especialmente ao lidar com consultas complexas.
+
+Graças a uma atualização recente do n8n, agora podemos manter tudo dentro de um único fluxo de trabalho, o que facilita depurar, testar e iterar — tudo de forma visual. Também explicarei quando um enxame de agentes não é a melhor escolha e como ele se compara ao uso de fluxos de IA padrão ou subfluxos.
+
+**Planilha de Log dos Agentes**
+**Planilha de Ideias para o YouTube**

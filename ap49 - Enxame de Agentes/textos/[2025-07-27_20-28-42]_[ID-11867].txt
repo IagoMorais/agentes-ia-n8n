@@ -1,0 +1,83 @@
+Data: 27/07/2025, 20:28:42
+ID da Mensagem: 11867
+
+---
+
+exemplos 
+
+Aqui estão os **exemplos práticos citados no vídeo** sobre como usar um enxame de agentes de IA no **n8n**:
+
+---
+
+### 1. **Pedido complexo via Telegram (Exemplo 1)**
+
+**Comando enviado:**
+“Me envie 4 vídeos de alta performance sobre n8n no YouTube, mande por e-mail para Dexter Morgan e também me diga como está o clima hoje em Chicago.”
+
+**Ações executadas:**
+
+* **Web Agent** → consulta o clima em Chicago
+* **Contact Agent** → busca e-mail de Dexter Morgan
+* **YouTube Agent** → busca 4 vídeos relevantes sobre n8n
+* **Email Agent** → envia os vídeos e o clima por e-mail
+* **Log** → tudo é registrado em uma planilha do Google Sheets
+
+---
+
+### 2. **Pedido mais avançado (Exemplo 2)**
+
+**Comando enviado:**
+“Pegue minhas ideias de vídeos do banco de dados, faça uma pesquisa sobre elas com o Tavi (ou Perplexity), envie o resumo para o Michael Scott e agende um evento hoje às 16h para discutir.”
+
+**Ações executadas:**
+
+* **YouTube Agent** → pega ideias do banco de dados
+* **Contact Agent** → busca e-mail de Michael Scott
+* **Web Agent** → faz pesquisa sobre os vídeos com Perplexity
+* **Email Agent** → envia resumo por e-mail
+* **Calendar Agent** → agenda evento no Google Calendar às 16h com Michael
+
+---
+
+### 3. **Criação de evento com falha de data (Exemplo 3)**
+
+**Comando enviado:**
+“Crie um evento para hoje às 13h chamado almoço.”
+
+**Erro ocorrido:**
+
+* O agente marcou o evento para **27 de abril de 2024** (data antiga) porque **não sabia que “hoje” era 25 de julho de 2025**.
+
+**Correção feita:**
+
+* Foi adicionado ao prompt a variável **`{{ $now }}`** para informar a data atual aos agentes.
+
+---
+
+### 4. **Criação de evento com falha de título (Exemplo 4)**
+
+**Comando enviado:**
+“Crie um evento para hoje às 18h para jantar.”
+
+**Erro ocorrido:**
+
+* O evento foi criado, mas **sem título**.
+
+**Correção feita:**
+
+* Adicionado o campo **“summary”** (título do evento) como parâmetro no calendário para o agente preencher com o nome do evento.
+
+---
+
+### 5. **Envio de e-mail simples (Exemplo 5)**
+
+**Comando enviado:**
+“Mande um e-mail para nate@example.com perguntando se ele está tendo um bom dia.”
+
+**Erro ocorrido:**
+
+* O **e-mail não foi enviado** porque o agente não entendeu o endereço corretamente.
+
+**Correção feita:**
+
+* Ajustes nos **prompts de sistema** para garantir que o agente principal **não execute a tarefa**, mas sim **delegue** para o subagente de e-mail.

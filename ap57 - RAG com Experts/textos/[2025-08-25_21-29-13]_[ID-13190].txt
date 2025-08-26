@@ -1,0 +1,43 @@
+Data: 24/08/2025, 21:29:13
+ID da Mensagem: 13190
+
+---
+
+ingestão.
+
+2. Supabase Storage e vetor store
+   Exemplo
+   Bucket público taia-rag; tabela documents criada pelo Quickstart LangChain.
+   Resposta
+   Envie as imagens para o bucket e salve as URLs públicas nos metadados; faça upsert dos embeddings na documents.
+
+3. Chaves e credenciais
+   Exemplo
+   Mistral API key sem “Bearer ”; OpenAI API ativa; Supabase base URL + service role secret.
+   Resposta
+   Crie credenciais separadas por provedor no n8n e referencie no(s) nó(s) correspondente(s).
+
+4. Chat com dados
+   Exemplo
+   Abrir a URL do when chat message received e perguntar:
+   “Liste as principais conclusões do PDF X e mostre qualquer imagem da página 3 relacionada.”
+   Resposta
+   O agente busca no Supabase por similaridade, insere as imagens relevantes via URL pública e responde com base nos trechos recuperados.
+
+5. Otimização de memória no n8n Cloud
+   Exemplo
+   Quebrar OCR e parsing em sub-workflows e chamar via Execute Workflow.
+   Resposta
+   Ao encerrar o sub-workflow, a memória é liberada; isso evita quedas por RAM.
+
+6. Re-ingestão e atualização
+   Exemplo
+   Detectar alterações por hash do conteúdo do PDF; se mudou, reprocessa.
+   Resposta
+   Garante consistência do vetor store e evita duplicidade.
+
+7. Observabilidade
+   Exemplo
+   Logar consulta, documentos retornados, score, latência total e por etapa.
+   Resposta
+   Com isso você calibra chunk size, k e re-rank e reduz custo/latência.

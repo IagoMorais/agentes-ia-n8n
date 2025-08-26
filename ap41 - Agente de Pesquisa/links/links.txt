@@ -1,0 +1,7 @@
+[2025-07-05T22:39:56.000Z] [Grupo: INEMA_N8N] [Tópico: ap41 - Agente de Pesquisa]: https://www.youtube.com/watch?v=UBx4Zudvf8s
+[2025-07-05T22:39:42.000Z] [Grupo: INEMA_N8N] [Tópico: ap41 - Agente de Pesquisa]: **omínios 
+[2025-07-05T22:36:57.000Z] [Grupo: INEMA_N8N] [Tópico: ap41 - Agente de Pesquisa]: https://openrouter.ai/
+[2025-07-05T22:36:57.000Z] [Grupo: INEMA_N8N] [Tópico: ap41 - Agente de Pesquisa]: https://perplexity.ai/
+[2025-07-05T22:36:57.000Z] [Grupo: INEMA_N8N] [Tópico: ap41 - Agente de Pesquisa]: https://openrouter.ai/
+[2025-07-05T22:36:57.000Z] [Grupo: INEMA_N8N] [Tópico: ap41 - Agente de Pesquisa]: https://perplexity.ai/
+[2025-07-05T22:33:46.000Z] [Grupo: INEMA_N8N] [Tópico: ap41 - Agente de Pesquisa]: https://chatgpt.com/c/6869a7b4-b13c-8009-8c07-4bd9aa31a1bb

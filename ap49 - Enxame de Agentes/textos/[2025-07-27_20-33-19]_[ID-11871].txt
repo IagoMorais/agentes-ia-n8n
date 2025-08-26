@@ -1,0 +1,89 @@
+Data: 27/07/2025, 20:33:19
+ID da Mensagem: 11871
+
+---
+
+## ⚡️ HACKS PARA CRIAR E USAR AGENTES DE IA NO N8N
+
+### 1. **Use `{{ $now }}` para passar a data e hora atual para os agentes**
+
+* Evita que eventos ou tarefas sejam agendados com datas erradas.
+* Adicione isso no prompt do agente:
+
+  ```  A data atual é: {{ $now }}
+  ```
+
+---
+
+### 2. E**vite erros com campos obrigatórios usando descrições
+**
+* Exemplo: no campo “Para” do e-mail (destinatário), coloque:
+
+   ``` Este campo deve conter um e-mail válido (ex: nome@email.com)
+  
+```* Isso ajuda o modelo a gerar o conteúdo corretamente.
+
+---
+
+### 3. Nã**o deixe o agente principal fazer tarefas
+
+*** No prompt do agente principal, inclua:
+
+    ```Sua função é apenas delegar tarefas. Não execute nenhuma ação diretamente.
+  
+
+```---
+
+### 4. Use** logs para identificar falhas com precisão
+
+*** Sempre analise os age**nt logs qu**ando algo falhar.
+* Descubra que**m chamou quem, o** q**ue foi enviado e **qua**l parâmetro deu erro.
+
+**---
+
+### 5. Reu**tilize agentes com ferramentas diferentes
+
+*** Um mesmo agente (ex: e-mail) pode ser usado com ferramentas diferentes (Gmail, Outlook).
+* Basta duplicar o agente e trocar a ferramenta.
+
+---
+
+### 6. Use** o botão “Let model decide” para campos dinâmicos
+
+*** Em vez de preencher manualmente os campos, clique em:
+
+    L```et the model define this parameter
+  
+* ```Isso permite que o modelo de IA decida o conteúdo de cada campo.
+
+---
+
+### 7. Come**ce simples: 1 agente, 1 ferramenta
+
+* **Evita confusão inicial.
+* Escale gradualmente para múltiplos agentes.
+
+---
+
+### 8. Comp**artilhe memória com Session ID
+
+* **Para manter contexto entre agentes, passe o mesmo Session ID:
+
+    Us```e Telegram Chat ID ou outro identificador único
+  
+
+--```-
+
+### 9. Crie **promps específicos para cada subagente
+
+* E**xemplo no Email Agent:
+
+    Sem```pre verifique se o e-mail é válido antes de enviar. Use a ferramenta de envio apenas quando o destinatário estiver correto.
+  
+
+---```
+
+### 10. Reapro**veite modelos e ferramentas prontos
+
+* Co**pie ferramentas e prompts de outros agentes já testados.
+* Isso economiza tempo e evita erros comuns.

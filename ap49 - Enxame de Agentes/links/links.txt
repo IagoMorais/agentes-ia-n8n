@@ -1,0 +1,2 @@
+[2025-07-27T23:31:25.000Z] [Grupo: INEMA_N8N] [Tópico: ap49 - Enxame de Agentes]: https://openrouter.ai/
+[2025-07-27T23:04:36.000Z] [Grupo: INEMA_N8N] [Tópico: ap49 - Enxame de Agentes]: https://chatgpt.com/c/6886b03e-3640-8331-9136-8034418f392d

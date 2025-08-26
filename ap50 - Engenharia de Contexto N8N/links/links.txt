@@ -1,0 +1,2 @@
+[2025-07-29T20:05:32.000Z] [Grupo: INEMA_N8N] [Tópico: ap50 - Engenharia de Contexto N8N]: https://www.youtube.com/watch?v=wq001sxDTWw
+[2025-07-29T20:05:10.000Z] [Grupo: INEMA_N8N] [Tópico: ap50 - Engenharia de Contexto N8N]: https://chatgpt.com/c/6888e454-9128-8329-8817-44f4b179b694

@@ -1,0 +1,96 @@
+Data: 05/07/2025, 19:39:42
+ID da Mensagem: 10980
+
+---
+
+Aqui vão os **hacks para deixar seu agente de pesquisa com IA no n8n muito mais inteligente, rápido e útil**:
+
+---
+
+### 🚀 **1. System Prompt Poderoso**
+
+Use um prompt no **AI Agent** para guiar o comportamento:
+
+```Você é um agente de pesquisa avançado. Sua tarefa é buscar informações precisas e atualizadas usando Perplexity. Sempre cite as fontes com links. Responda de forma clara e resumida, com um resumo no início e uma lista de pontos-chave.```
+
+✅ Resultado: respostas mais diretas, profissionais e com links.
+
+---
+
+### ⚡ 2**. Pesquisa Focada
+**
+Ative filtros no Perplexity para:
+
+* 🔥 Buscar apenas conteúdos r**ecentes **(últimas 24h, semana).
+* 🌐 Restringir a pesquisa a d**omínios confiáveis **(ex.: `forbes.com, nytimes.com`).
+* 📑 Evitar conteúdo duplicado com filtros de URL.
+
+---
+
+### 📂 3**. Multi-Tópicos em Massa
+**
+* Use um G**oogle Sheet com lista de tópicos/empresas.**
+* Configure o fluxo para percorrer cada linha e gerar relatórios diários para todos automaticamente.
+
+---
+
+### 🧠 4**. Escolha Modelos Específicos
+**
+* G**PT-4.1 Mini **→ rápido e barato.
+* C**laude Sonnet ou Haiku (via OpenRouter) **→ respostas mais contextuais e longas.
+* S**onar Deep Research (Perplexity) **→ ideal para análises profundas.
+  Troque o modelo conforme a tarefa.
+
+---
+
+### ⏱️ 5**. Pesquisa Assíncrona
+**
+* Ative E**xecute Workflow Async **no n8n para rodar múltiplas pesquisas ao mesmo tempo.
+  ✅ Ganha velocidade ao processar listas grandes.
+
+---
+
+### 🏃‍♂️ 6**. Gatilho Automático
+**
+Substitua o gatilho de chat por:
+
+* ⏰ S**chedule Trigger **→ roda todo dia às 8h.
+* 📩 W**ebhook Trigger **→ inicia via chamada externa (API, site, app).
+
+---
+
+### 📝 7**. Relatórios Bonitos
+**
+Formate o resultado com Markdown:
+
+#``` Relatório de Pesquisa
+**Resumo:** {summary}
+
+## Pontos-Chave:
+- {point1}
+- {point2}
+- {point3}
+
+## Fontes:
+[Link 1]({url1})
+[Link 2]({url2})
+```
+✅ Ideal para enviar por e-mail ou salvar no Notion/Google Docs.
+
+---
+
+### 🔐 8.** Proteção de API Keys
+
+*** Não salve API Keys direto no nó.
+* Use n8**n Secrets (**`{{ $env.OPENROUTER_API_KEY }}`).
+* ✅ Evita vazamentos ao compartilhar o workflow.
+
+---
+
+### 📊 9.** Painel de Controle
+
+**Integre com o n8**n UI (Webhook + Dashboard) p**ara:
+
+* Ver pesquisas concluídas.
+* Filtrar resultados por data.
+* Executar pesquisas manuais sem abrir o n8n.

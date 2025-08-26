@@ -1,0 +1,107 @@
+Data: 05/07/2025, 19:36:57
+ID da Mensagem: 10978
+
+---
+
+**Passo a Passo: Criar um Agente de Pesquisa com IA no n8n (sem código)**
+
+---
+
+### 1. **Preparar as Ferramentas**
+
+* Crie contas gratuitas em:
+
+  * OpenRouter
+  * Perplexity
+* Tenha o n8n instalado (ou use a versão em nuvem).
+
+---
+
+### 2. **Criar um Novo Workflow no n8n**
+
+* Abra o n8n e clique em **“+ Create Workflow”**.
+* Dê um nome ao workflow (ex: *Research Agent*).
+
+---
+
+### 3. **Adicionar Gatilho de Chat**
+
+* Clique em **“Add First Step”** e escolha **“Chat Message”**.
+* Isso será usado para enviar perguntas ao agente.
+
+---
+
+### 4. **Configurar o Nó AI Agent (OpenRouter)**
+
+* Clique no “+” abaixo do Chat Message.
+* Procure **“AI Agent”** e adicione.
+* Em **Chat Model**, clique em **“+”** para adicionar uma credencial.
+
+  1. Vá para OpenRouter.
+  2. Crie uma conta e acesse o menu **API Keys**.
+  3. Gere uma nova chave (ex: *research-agent*) e copie.
+  4. Volte ao n8n, cole a chave no campo e clique em **Save**.
+* Escolha o modelo **GPT-4.1 Mini** no n8n.
+
+---
+
+### 5. **Testar o Cérebro (OpenRouter)**
+
+* Abra o Chat e envie uma pergunta (ex: *“Explique as regras do golfe”*).
+* Verifique se o agente responde com informações detalhadas.
+
+---
+
+### 6. **Adicionar o Nó Perplexity**
+
+* Clique no “+” abaixo do AI Agent.
+* Procure **“Perplexity Tool”** e adicione.
+* Em **Credentials**, clique em **“+”**.
+
+  1. Vá para Perplexity.
+  2. Crie uma conta e acesse **Settings > API Keys**.
+  3. Gere uma chave, copie e cole no n8n.
+  4. Clique em **Save** e verifique a conexão.
+
+---
+
+### 7. **Configurar Pesquisa Avançada**
+
+* No Perplexity Tool:
+
+  * Escolha o modelo **Sonar Deep Research** (pesquisa profunda).
+  * Ative filtros se quiser (ex: resultados só das últimas 24h ou de domínios específicos).
+  * Clique em **Save**.
+
+---
+
+### 8. **Executar Primeira Pesquisa**
+
+* No Chat, faça uma pergunta ampla (ex: *“Como otimizar meu sono?”*).
+* O agente usará o Perplexity para buscar na web, analisar as fontes e criar um relatório com links.
+
+---
+
+### 9. **Automação com Google Sheets (Opcional)**
+
+* Substitua o Chat Message por um **gatilho diário** (Schedule Trigger).
+* Adicione um nó **Google Sheets** para buscar uma lista de empresas ou tópicos.
+* Configure o AI Agent para processar cada item da lista e gerar relatórios.
+* Adicione um novo nó **Google Sheets** para gravar os resultados na planilha.
+
+---
+
+### 10. **Personalizar o Agente**
+
+* Adicione uma **System Message** no AI Agent:
+
+  ```  Você é um agente de pesquisa especialista. Use o Perplexity para buscar informações atualizadas e entregue relatórios com fontes citadas.
+  ```
+* Isso melhora a precisão e foco das respostas.
+
+---
+
+### 11. F**inalizar e Testar
+**
+* Execute o workflow completo.
+* Confirme se os dados aparecem no Chat ou na planilha do Google.

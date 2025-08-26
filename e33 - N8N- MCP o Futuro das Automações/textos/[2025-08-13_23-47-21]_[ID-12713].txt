@@ -1,0 +1,30 @@
+Data: 12/08/2025, 23:47:21
+ID da Mensagem: 12713
+
+---
+
+BASE STICKY NOTE
+
+{
+  "nodos": [
+    {
+      "parametros": {
+        "contenido": "## Título de la Nota Adhesiva\nTexto de la nota adhesiva"
+      },
+      "tipo": "n8n-nodes-base.stickyNote",
+      "versionTipo": 1,
+      "posicion": [
+        1400,
+        -460
+      ],
+      "id": "ae20053d-915d-4aa2-a9b7-e05b07152a9f",
+      "nombre": "Nota Adhesiva2"
+    }
+  ],
+  "conexiones": {},
+  "datosPin": {},
+  "meta": {
+    "configuracionCredencialesPlantillaCompletada": true,
+    "idInstancia": "95e5a8c2e51c83e33b232ea792bbe3f063c094c33d9806a5565cb31759e1ad39"
+  }
+}

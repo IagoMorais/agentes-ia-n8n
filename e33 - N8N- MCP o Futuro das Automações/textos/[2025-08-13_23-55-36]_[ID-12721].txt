@@ -1,0 +1,107 @@
+Data: 12/08/2025, 23:55:36
+ID da Mensagem: 12721
+
+---
+
+### 🧠 **HACKS PARA ACELERAR SUA AUTOMAÇÃO COM CLAUDE + MCP + N8N**
+
+---
+
+#### 1. **Use prompts com contexto prático e direto**
+
+Evite descrições genéricas. Em vez de dizer “quero uma automação”, diga exatamente:
+
+> “Crie um fluxo que, ao final de uma reunião no Zoom, extraia a transcrição, classifique o tipo da reunião e salve o resumo no Google Sheets.”
+
+Isso acelera o entendimento do Claude e reduz erros de estrutura.
+
+---
+
+#### 2. **Adicione sticky notes no prompt**
+
+Inclua este comando ao final do prompt:
+
+> “Inclua sticky notes explicativas em cada etapa do fluxo com instruções resumidas.”
+
+Essas anotações tornam o fluxo muito mais compreensível para você e para terceiros.
+
+---
+
+#### 3. **Solicite validação e correção automática**
+
+Adicione no prompt:
+
+> “Valide os nós e corrija automaticamente os erros encontrados durante a criação.”
+
+Claude fará uma verificação de funcionamento e sugerirá ou aplicará correções automáticas.
+
+---
+
+#### 4. **Peça também os prompts internos dos nós de IA**
+
+Ao final do seu pedido principal, adicione:
+
+> “Adicione o conteúdo do prompt dentro dos nós de IA usados.”
+
+Isso garante que os agentes do N8N já venham com os prompts embutidos e prontos para funcionar.
+
+---
+
+#### 5. **Crie fluxos a partir de transcrição de vídeo**
+
+Você pode colar transcrições de YouTube ou Zoom e dizer:
+
+> “A partir dessa transcrição, crie uma automação que classifique, resuma e salve os resultados.”
+
+Claude entende longos contextos e estrutura o fluxo inteiro para você.
+
+---
+
+#### 6. **Atualize fluxos existentes com comandos de voz ou texto**
+
+Diga:
+
+> “No fluxo X, troque o switch por um if, adicione IA com tal prompt e envie os dados para o Telegram.”
+
+Claude reconhece o fluxo pelo nome e atualiza apenas o que você pediu.
+
+---
+
+#### 7. **Modifique o prompt original para uso reutilizável**
+
+Salve o prompt original com placeholders:
+
+```Tarefa: {{descricao_da_tarefa}}
+Entrada: {{tipo_de_disparo}}
+Processamento: {{etapas_com_logica}}
+Saída: {{onde_salvar_resultado}}```
+
+E vá só preenchendo os blocos com diferentes automações.
+
+---
+
+#### 8. **Conecte múltiplas ferramentas no mesmo prompt**
+
+Exemplo:
+
+> “Quando um pedido é feito no WooCommerce, envie os dados para o Notion, crie uma tarefa no Trello e mande uma mensagem no WhatsApp com o resumo.”
+
+Claude entenderá a cadeia e criará os nós encadeados automaticamente.
+
+---
+
+#### 9. **Utilize Claude com versão gratuita (com limites)**
+
+Use **Claude Sonnet** no lugar do Clotsopus para respostas mais rápidas com menor uso de tokens.
+
+Se atingir o limite de tokens, **peça para continuar** com o botão "Continuar".
+
+---
+
+#### 10. **Reaproveite fluxos de outros projetos**
+
+Diga:
+
+> “No fluxo chamado ‘Análise Zoom’, clone e adapte para reuniões do Google Meet com a mesma lógica.”
+
+Claude replica e ajusta o fluxo original automaticamente.

@@ -1,0 +1,116 @@
+Data: 27/07/2025, 20:31:25
+ID da Mensagem: 11869
+
+---
+
+## 🧩 PASSO A PASSO PARA CRIAR O WORKFLOW DE AGENTES NO N8N
+
+### 1. **Abrir o n8n com um canvas em branco**
+
+* Criar um novo workflow
+* Deixar o canvas limpo para adicionar os agentes
+
+---
+
+### 2. **Adicionar o AGENTE PRINCIPAL (Main Agent)**
+
+* Pressione `Tab` e escolha **"AI Agent"**
+* Dê um nome, ex: `Main Agent`
+* Conecte um **modelo de linguagem** via **OpenRouter**:
+
+  * Criar conta em openrouter.ai
+  * Gerar uma **API Key**
+  * Colar a chave na conexão do modelo no n8n
+
+---
+
+### 3. **Criar o SUBAGENTE DE E-MAIL (Email Agent)**
+
+* Adicionar um novo AI Agent
+* Nome: `Email Agent`
+* Descrição: “Agente responsável por enviar e-mails”
+* Conectar ao mesmo modelo de IA (ou outro, se quiser)
+* Configurar o **User Message** como **dinâmico**, deixando o Main Agent preencher com o que deve ser feito
+
+#### Adicionar ferramenta:
+
+* Clique em `+ Tool`
+* Escolha `Gmail Tool`
+* Configure:
+
+  * Tipo: `Text`
+  * Campos dinâmicos: para, assunto, corpo
+  * Desabilite assinatura automática do n8n
+
+---
+
+### 4. **Criar o SUBAGENTE DE CALENDÁRIO (Calendar Agent)**
+
+* Mesmo processo do Email Agent
+* Nome: `Calendar Agent`
+* Descrição: “Cria eventos no Google Calendar”
+* Conectar ao mesmo modelo ou outro
+
+#### Adicionar ferramenta:
+
+* Ferramenta: `Google Calendar`
+* Operação: `Create Event`
+* Campos configurados:
+
+  * Start time
+  * End time
+  * Summary (título do evento)
+* Deixe os valores para o modelo decidir dinamicamente
+
+---
+
+### 5. **Ajustar o prompt do AGENTE PRINCIPAL**
+
+* Adicionar um **system prompt** claro:
+
+  ```  Você é um agente orquestrador. Sua função é decidir qual subagente usar para cada tarefa. Não execute ações diretamente. Apenas repasse o comando ao subagente adequado.
+  ```
+
+---
+
+### 6. L**igar os AGENTES com o AGENTE PRINCIPAL
+**
+* Em “Tools” do Main Agent:
+
+  * Adicionar E`mail Agent `como ferramenta
+  * Adicionar C`alendar Agent `como ferramenta
+
+---
+
+### 7. T**estar a comunicação via chat
+**
+* Use um nó de entrada, como T**elegram Trigger **ou W**ebhook,** para simular um usuário
+* Envie mensagens como:
+
+   ``` Crie um evento para hoje às 14h com título "Revisar projeto"
+  
+```
+---
+
+### 8. Co**rrigir erros observando os LOGS
+
+*** Vá até o Ag**ent Logs n**o Main Agent
+* Veja qual agente foi chamado, com qual mensagem e se houve erro
+* Ex: se data incorreta → adicionar ao system prompt:
+
+    ```A data atual é: {{ $now }}
+  
+
+```---
+
+### 9. Adi**cionar planilha de LOG (opcional)
+
+*** Use um nó Goo`gle Sheets
+* `Salve: hora, prompt, ações, tokens usados
+
+---
+
+### 10. Exp**ortar ou clonar o workflow
+
+*** Ao final, o autor disponibiliza o JSON para duplicar o workflow
+* Você pode importar esse JSON no seu ambiente n8n
